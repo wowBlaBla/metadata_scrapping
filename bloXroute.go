@@ -2,13 +2,11 @@ package main
 
 import (
 	"crypto/tls"
-	"encoding/hex"
 	"encoding/json"
 	"fmt"
 	"net/http"
 
 	"github.com/gorilla/websocket"
-	solsha3 "github.com/miguelmota/go-solidity-sha3"
 )
 
 var wss *websocket.Conn
@@ -31,9 +29,7 @@ func connect_wss() {
 // start monitoring the pending txs from bloXroute
 func startMonitoring() {
 	// calculate the methodID from function proto type string
-	_tmp := solsha3.SoliditySHA3(config.Watch_function.Func_ProtoType)
-	_hash_str := hex.EncodeToString(_tmp)
-	methodID := "0x" + _hash_str[0:8]
+	methodID := getMethodId(config.Watch_function.Func_ProtoType)
 
 	// make the subscribe request
 	subRequest := `{"jsonrpc": "2.0", "id": 1, "method": "subscribe", "params": ["newTxs", {"include": [], "filters": "{method_id} == '` + methodID + `'`

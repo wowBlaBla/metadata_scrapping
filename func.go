@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/ethereum/go-ethereum/accounts/abi"
+	solsha3 "github.com/miguelmota/go-solidity-sha3"
 )
 
 // parse the input data in transaction
@@ -77,4 +78,13 @@ func getCID(txInput string) string {
 
 	fmt.Println("CID:", param)
 	return param
+}
+
+// calculate the methodID from function proto type string
+func getMethodId(func_proto_type string) string {
+	_tmp := solsha3.SoliditySHA3(func_proto_type)
+	_hash_str := hex.EncodeToString(_tmp)
+	result := "0x" + _hash_str[0:8]
+
+	return result
 }
