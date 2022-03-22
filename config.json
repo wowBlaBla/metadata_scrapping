@@ -1,0 +1,19 @@
+{
+  "update_cid": false,
+  "bloxRouteAuthHeader": "ZGRmMzIzNzItM2JkZC00Y2YxLWJkNjYtNjE3ZTU1YzJjZjUyOjdhMjdkYWU3NzhhNDAzMmNjYzc0ZWU2NTY1MzRiNjg1",
+  "rpc": {
+    "https": "https://ropsten.infura.io/v3/901de4ff31434d3d9639952ce106cb9e",
+    "wss": "ws://127.0.0.1:28333/ws"
+  },
+  "watch_function": {
+    "func_prototype": "setHiddenUri(string)",
+    "from": "",
+    "to": ""
+  },
+  "ipfs_info": {
+    "cid": "QmZQGi1pifB9pqmLUCjiNSnhgZXLefA6JHU6NvRZTwgyHm",
+    "start_index": 1,
+    "total_count": 50,
+    "thread_count": 5
+  }
+}
