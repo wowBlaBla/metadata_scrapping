@@ -3,7 +3,6 @@ package main
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -57,6 +56,6 @@ func writeMetadata(data []byte) {
 	_, err := file.Write(buf.Bytes())
 
 	if err == nil {
-		fmt.Printf("%+v\n", ret)
+		// fmt.Printf("%+v\n", ret)
 	}
 }
