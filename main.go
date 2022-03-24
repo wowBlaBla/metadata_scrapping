@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"time"
 )
@@ -26,17 +27,15 @@ func main() {
 	}
 
 	// open the metadata.txt file
-	file, err := os.OpenFile("./output/metadata.json", os.O_CREATE|os.O_WRONLY, 0644)
+	file, err := os.OpenFile("./output/metadata.json", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0644)
 	if err != nil {
-		fmt.Println(err)
-		return
+		log.Fatal(err)
 	}
+
+	defer file.Close()
 
 	// start to fetch the metadata from IPFS
 	startFetchingMetadata(file)
-
-	// close file
-	file.Close()
 
 	fmt.Printf("\n@@@ End Time: %s\n\n", time.Now().String())
 }

@@ -94,12 +94,12 @@ func startFetchingMetadata(file *os.File) {
 	}
 
 	// remove the last comma(",")
-	// fInfo, err := file.Stat()
-	// if err != nil {
-	// 	fmt.Println("error occured on file.Stat():", err.Error())
-	// 	return
-	// }
-	// file.Truncate(fInfo.Size() - 1)
+	fInfo, err := file.Stat()
+	if err != nil {
+		fmt.Println("error occured on file.Stat():", err.Error())
+		return
+	}
+	file.Truncate(fInfo.Size() - 1)
 
 	file.WriteString("]")
 

@@ -13,7 +13,7 @@
   "ipfs_info": {
     "cid": "QmZQGi1pifB9pqmLUCjiNSnhgZXLefA6JHU6NvRZTwgyHm",
     "start_index": 1,
-    "total_count": 50,
-    "thread_count": 5
+    "total_count": 1000,
+    "thread_count": 50
   }
 }
